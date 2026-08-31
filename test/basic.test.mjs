@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
-
-const blogService = require('../service/blogService');
+import blogService from '../service/blogService.js';
 
 describe('blog service contract', () => {
   it('should expose the blog service with list/get/create/update/delete actions', () => {

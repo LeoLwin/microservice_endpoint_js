@@ -1,10 +1,10 @@
-const dotenv = require("dotenv");
-dotenv.config();
+import dotenv from "dotenv";
+import express from "express";
+import ServiceBroker from "./broker/broker.js";
+import indexController from "./controller/indexController.js";
+import config from "./config/config.js";
 
-const express = require("express");
-const ServiceBroker = require("./broker/broker");
-const indexController = require("./controller/indexController");
-const config = require("./config/config");
+dotenv.config();
 
 ServiceBroker.start().then(() => {
   const app = express();

@@ -87,4 +87,4 @@ const ResponseStatus = {
   }),
 };
 
-module.exports = ResponseStatus;
+export default ResponseStatus;

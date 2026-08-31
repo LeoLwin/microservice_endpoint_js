@@ -1,7 +1,7 @@
-const express = require("express");
-const user = require("./userController");
+import express from "express";
+import user from "./userController.js";
 
 const router = express.Router();
 router.use("/blog", user);
 
-module.exports = router;
+export default router;

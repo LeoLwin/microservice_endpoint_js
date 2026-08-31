@@ -1,0 +1,23 @@
+{
+  "name": "intern_endpoint_js",
+  "version": "1.0.0",
+  "description": "JavaScript version of intern_endpoint",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "vitest run"
+  },
+  "author": "Kaung Htet Lwin",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "ioredis": "^5.8.2",
+    "moleculer": "^0.14.35",
+    "nodemon": "^3.1.10"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.2"
+  }
+}

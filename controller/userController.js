@@ -11,10 +11,10 @@ const handleError = (res, err) => {
 
 router.get("/list", async (req, res) => {
   try {
-    const { current, limit, role } = req.body;
-    console.log("req.body :", req.body);
+    const current = Number(req.query.current ?? 1);
+    const limit = Number(req.query.limit ?? 10);
 
-    if (!current || !limit) {
+    if (!Number.isFinite(current) || !Number.isFinite(limit)) {
       return res.json({ message: "Invalid parameters" });
     }
 
@@ -47,13 +47,13 @@ router.post("/create", async (req, res) => {
 
     console.log("req.body : ", req.body);
 
-    const { title, content } = req.body;
+    const { title, content, image } = req.body;
 
     if (!title || !content) {
       return res.json({ message: "Invalid arguments" });
     }
 
-    const result = await ServiceBroker.call("blog.create", { title, content });
+    const result = await ServiceBroker.call("blog.create", { title, content, image });
     console.log("Result:", result);
 
     res.json({ result });
@@ -65,7 +65,7 @@ router.post("/create", async (req, res) => {
 router.put("/update/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, content } = req.body;
+    const { title, content, image } = req.body;
 
     if (!id) return res.json({ message: "Blog ID is required" });
 
@@ -73,6 +73,7 @@ router.put("/update/:id", async (req, res) => {
       id,
       title,
       content,
+      image,
     });
 
     res.json({ result });

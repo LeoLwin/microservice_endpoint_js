@@ -13,7 +13,7 @@ console.log("Redis Config:", {
 });
 
 const theBroker = new ServiceBroker({
-  namespace: "BlogErina",
+  namespace: "BlogMaKyawt",
   nodeID: "endpoint-node123444",
   logLevel: "info",
 

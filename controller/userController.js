@@ -20,7 +20,7 @@ router.get("/list", async (req, res) => {
 
     const result = await ServiceBroker.call("blog.list", { current, limit });
     console.log("Result : ", result);
-    res.json({ result });
+    res.json(result);
   } catch (err) {
     handleError(res, err);
   }
@@ -33,7 +33,7 @@ router.get("/get/:id", async (req, res) => {
     if (!id) return res.json({ message: "Blog ID is required" });
 
     const result = await ServiceBroker.call("blog.get", { id });
-    res.json({ result });
+    res.json(result);
   } catch (err) {
     handleError(res, err);
   }
@@ -56,7 +56,7 @@ router.post("/create", async (req, res) => {
     const result = await ServiceBroker.call("blog.create", { title, content, image });
     console.log("Result:", result);
 
-    res.json({ result });
+    res.json(result);
   } catch (err) {
     handleError(res, err);
   }
@@ -76,7 +76,7 @@ router.put("/update/:id", async (req, res) => {
       image,
     });
 
-    res.json({ result });
+    res.json(result);
   } catch (err) {
     handleError(res, err);
   }
@@ -89,7 +89,7 @@ router.delete("/delete/:id", async (req, res) => {
     if (!id) return res.json({ message: "Blog ID is required" });
 
     const result = await ServiceBroker.call("blog.delete", { id });
-    res.json({ result });
+    res.json(result);
   } catch (err) {
     handleError(res, err);
   }
